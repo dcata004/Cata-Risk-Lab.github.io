@@ -1,1 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cata Risk Lab | Sovereign AI Governance</title>
+    <style>
+        /* SWISS MINIMALIST STYLE ENGINE */
+        :root {
+            --swiss-red: #DA291C;
+            --off-black: #1A1A1A;
+            --pure-white: #FFFFFF;
+            --slate: #F4F4F4;
+            --font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
 
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-stack);
+            background-color: var(--pure-white);
+            color: var(--off-black);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            padding: 40px 5%;
+            border-bottom: 2px solid var(--off-black);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .flag { color: var(--swiss-red); }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 100px 5%;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #555;
+            max-width: 700px;
+        }
+
+        .status-badge {
+            background-color: var(--off-black);
+            color: var(--pure-white);
+            padding: 5px 12px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        /* GRID SYSTEM (The Tools) */
+        .section-title {
+            padding: 0 5%;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #888;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2px;
+            background-color: var(--off-black); /* Creates the border lines */
+            border-top: 2px solid var(--off-black);
+            border-bottom: 2px solid var(--off-black);
+        }
+
+        .card {
+            background-color: var(--pure-white);
+            padding: 40px;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            background-color: var(--slate);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            text-decoration: none;
+            color: var(--swiss-red);
+            font-weight: bold;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--swiss-red);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--off-black);
+            color: var(--pure-white);
+            padding: 60px 5%;
+            margin-top: 100px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .address {
+            font-style: normal;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* MOBILE FIX */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><span class="flag">🇨🇭</span> Cata Risk Lab</div>
+        <div style="font-weight: bold; font-size: 0.9rem;">ZURICH • MIAMI</div>
+    </header>
+
+    <section class="hero">
+        <span class="status-badge">Institute for Sovereign AI</span>
+        <h1>We build the immune system for the Artificial Intelligence age.</h1>
+        <p>Cata Risk Lab develops open-source forensic infrastructure to audit AI liabilities, detect algorithmic harvesting, and protect sovereign data identity.</p>
+    </section>
+
+    <div class="section-title">ACTIVE FORENSIC INFRASTRUCTURE</div>
+
+    <div class="grid">
+        <article class="card">
+            <h3>🛡️ V.I.P.E.R. Forensics</h3>
+            <p>Vendor Integrity & Personnel Email Reconnaissance. Audits recruitment channels for "Resume Harvesting" and data mining attacks.</p>
+            <a href="https://huggingface.co/spaces/Cata-Risk-Lab/VIPER-Audit">LAUNCH AUDIT &rarr;</a>
+        </article>
+
+        <article class="card">
+            <h3>⚖️ Swiss Risk Calculator</h3>
+            <p>Automated compliance scoring for nFADP and EU AI Act high-risk classification. Used by Swiss insurance carriers.</p>
+            <a href="https://huggingface.co/spaces/Cata-Risk-Lab/Swiss-Risk-Calculator">CALCULATE LIABILITY &rarr;</a>
+        </article>
+
+        <article class="card">
+            <h3>🐊 Wattle Guard</h3>
+            <p>Cross-border PII redaction engine optimized for Sovereign Identity Markers (AHV13, NHS, TFN).</p>
+            <a href="https://huggingface.co/spaces/Cata-Risk-Lab/Wattle-Guard">DEPLOY GUARDRAILS &rarr;</a>
+        </article>
+
+        <article class="card">
+            <h3>📜 Liability Scanner</h3>
+            <p>Automated legal parser for AI Terms of Service (ToS). Detects "Right to Train" and "Perpetual License" clauses.</p>
+            <a href="https://huggingface.co/spaces/Cata-Risk-Lab/Liability-Scanner">SCAN CONTRACT &rarr;</a>
+        </article>
+    </div>
+
+    <div style="padding: 60px 5%;">
+        <h3 style="margin-bottom: 20px;">🔬 OPEN RESEARCH DATA</h3>
+        <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                <strong>📂 Recruiter Harvesting Dataset (v1.0)</strong><br>
+                <span style="color: #666; font-size: 0.9rem;">Forensic corpus of 100+ recruitment emails labeled for algorithmic fraud.</span><br>
+                <a href="https://huggingface.co/datasets/Cata-Risk-Lab/recruiter-harvesting-dataset-v1" style="color: var(--swiss-red); font-size: 0.8rem;">ACCESS DATASET [HF]</a>
+            </li>
+            <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                <strong>🧠 VIPER Text Classifier (Model)</strong><br>
+                <span style="color: #666; font-size: 0.9rem;">Scikit-learn architecture for detecting spam vectors in labor market data.</span><br>
+                <a href="https://huggingface.co/Cata-Risk-Lab/viper-text-classifier-v1" style="color: var(--swiss-red); font-size: 0.8rem;">VIEW MODEL [HF]</a>
+            </li>
+        </ul>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h3>Cata Risk Lab</h3>
+                <p class="address">
+                    <strong>Global Headquarters</strong><br>
+                    1200 North Federal Highway, Suite 200<br>
+                    Mizner Park<br>
+                    Boca Raton, FL 33432<br><br>
+                    <strong>Research Inquiries:</strong><br>
+                    anthony@catarisklab.com
+                </p>
+            </div>
+            <div style="text-align: right;">
+                <p class="address">
+                    &copy; 2026 Cata Risk Lab.<br>
+                    Operating under Swiss & US Sovereign Standards.<br>
+                    <br>
+                    <a href="https://github.com/Cata-Risk-Lab" style="color: #999; text-decoration: none;">GitHub</a> | 
+                    <a href="https://huggingface.co/Cata-Risk-Lab" style="color: #999; text-decoration: none;">Hugging Face</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
