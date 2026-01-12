@@ -11,7 +11,10 @@
             --off-black: #1A1A1A;
             --pure-white: #FFFFFF;
             --slate: #F4F4F4;
+            --terminal-bg: #111;
+            --terminal-green: #0f0;
             --font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --mono-font: "Courier New", Courier, monospace;
         }
 
         body {
@@ -21,6 +24,17 @@
             background-color: var(--pure-white);
             color: var(--off-black);
             line-height: 1.6;
+        }
+
+        /* SYSTEM STATUS BAR */
+        .status-bar {
+            background-color: #000;
+            color: var(--terminal-green);
+            padding: 5px 5%;
+            font-family: var(--mono-font);
+            font-size: 0.75rem;
+            text-align: right;
+            border-bottom: 1px solid #333;
         }
 
         /* HEADER */
@@ -40,6 +54,14 @@
         }
 
         .flag { color: var(--swiss-red); }
+
+        .mozilla-badge {
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
         /* HERO SECTION */
         .hero {
@@ -122,12 +144,25 @@
             border-bottom: 1px solid var(--swiss-red);
         }
 
+        /* LIVE TERMINAL */
+        .terminal {
+            background: var(--terminal-bg);
+            color: #ddd;
+            padding: 50px 5%;
+            font-family: var(--mono-font);
+            font-size: 0.9rem;
+            border-top: 4px solid var(--swiss-red);
+        }
+        
+        .log-entry { margin-bottom: 5px; }
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
         /* FOOTER */
         footer {
             background-color: var(--off-black);
             color: var(--pure-white);
             padding: 60px 5%;
-            margin-top: 100px;
         }
 
         .footer-grid {
@@ -151,9 +186,19 @@
 </head>
 <body>
 
+    <div class="status-bar">
+        🟢 SYSTEMS OPERATIONAL | MIAMI NODE: ONLINE | ZURICH NODE: ONLINE
+    </div>
+
     <header>
-        <div class="logo"><span class="flag">🇨🇭</span> Cata Risk Lab</div>
-        <div style="font-weight: bold; font-size: 0.9rem;">ZURICH • MIAMI</div>
+        <div>
+            <div class="logo"><span class="flag">🇨🇭</span> Cata Risk Lab</div>
+            <div class="mozilla-badge">Mozilla Fellowship Candidate (2026)</div>
+        </div>
+        <div style="font-weight: bold; font-size: 0.9rem; text-align: right;">
+            ZURICH • MIAMI<br>
+            <span style="font-size: 0.7rem; color: #888;">EST. 2024</span>
+        </div>
     </header>
 
     <section class="hero">
@@ -168,7 +213,8 @@
         <article class="card">
             <h3>🛡️ V.I.P.E.R. Forensics</h3>
             <p>Vendor Integrity & Personnel Email Reconnaissance. Audits recruitment channels for "Resume Harvesting" and data mining attacks.</p>
-<a href="https://huggingface.co/spaces/Cata-Risk-Lab/VIPER-Recruiter-Forensics">LAUNCH AUDIT &rarr;</a>        </article>
+            <a href="https://huggingface.co/spaces/Cata-Risk-Lab/VIPER-Recruiter-Forensics">LAUNCH AUDIT &rarr;</a>
+        </article>
 
         <article class="card">
             <h3>⚖️ Swiss Risk Calculator</h3>
@@ -205,6 +251,16 @@
         </ul>
     </div>
 
+    <div class="terminal">
+        <p style="opacity: 0.5; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">// LATEST SYSTEM LOGS</p>
+        <p class="log-entry">> <span style="color: var(--terminal-green);">CONNECTED</span> to Sovereign Identity Database...</p>
+        <p class="log-entry">> <span style="color: var(--terminal-green);">VERIFIED</span> 12 New Recruitment Vectors...</p>
+        <p class="log-entry">> <span style="color: var(--terminal-green);">AUDITING</span> Liability Clauses for EU AI Act Compliance...</p>
+        <br>
+        <p class="log-entry" style="color: var(--swiss-red);">[!] UNAUTHORIZED DATA MINING DETECTED IN SECTOR 4.</p>
+        <p class="log-entry blink">_</p>
+    </div>
+
     <footer>
         <div class="footer-grid">
             <div>
@@ -218,17 +274,3 @@
                     anthony@catarisklab.com
                 </p>
             </div>
-            <div style="text-align: right;">
-                <p class="address">
-                    &copy; 2026 Cata Risk Lab.<br>
-                    Operating under Swiss & US Sovereign Standards.<br>
-                    <br>
-                    <a href="https://github.com/Cata-Risk-Lab" style="color: #999; text-decoration: none;">GitHub</a> | 
-                    <a href="https://huggingface.co/Cata-Risk-Lab" style="color: #999; text-decoration: none;">Hugging Face</a>
-                </p>
-            </div>
-        </div>
-    </footer>
-
-</body>
-</html>
