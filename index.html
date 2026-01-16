@@ -3,299 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cata Risk Lab | Sovereign AI Governance</title>
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QCBF06Z6X1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-QCBF06Z6X1');
-    </script>
-
+    <title>Cata Risk Lab | Global AI Governance</title>
     <style>
-        /* SWISS MINIMALIST STYLE ENGINE */
         :root {
-            --swiss-red: #DA291C;
-            --off-black: #1A1A1A;
-            --pure-white: #FFFFFF;
-            --slate: #F4F4F4;
-            --terminal-bg: #111;
-            --terminal-green: #0f0;
-            --font-stack: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            --mono-font: "Courier New", Courier, monospace;
+            --bg-color: #0a0a0a;
+            --text-color: #e0e0e0;
+            --accent-color: #00ff41; /* Terminal Green */
+            --alert-color: #ff3333; /* Critical Red */
+            --warn-color: #ffbd2e; /* Warning Yellow */
+            --dim-color: #666;
+            --font-main: 'Courier New', Courier, monospace;
         }
 
         body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
             margin: 0;
             padding: 0;
-            font-family: var(--font-stack);
-            background-color: var(--pure-white);
-            color: var(--off-black);
             line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        /* SYSTEM STATUS BAR */
-        .status-bar {
-            background-color: #000;
-            color: var(--terminal-green);
-            padding: 5px 5%;
-            font-family: var(--mono-font);
-            font-size: 0.75rem;
-            text-align: right;
-            border-bottom: 1px solid #333;
-        }
-
+        /* UTILITIES */
+        a { color: var(--text-color); text-decoration: none; border-bottom: 1px dotted var(--dim-color); }
+        a:hover { color: var(--accent-color); border-bottom: 1px solid var(--accent-color); }
+        .highlight { color: var(--accent-color); }
+        .alert { color: var(--alert-color); }
+        .warn { color: var(--warn-color); }
+        .dim { color: var(--dim-color); font-size: 0.9em; }
+        
         /* HEADER */
         header {
-            padding: 40px 5%;
-            border-bottom: 2px solid var(--off-black);
+            border-bottom: 2px solid var(--dim-color);
+            padding-bottom: 20px;
+            margin-bottom: 40px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+        }
+        
+        .status-bar {
+            font-size: 0.75em;
+            margin-bottom: 10px;
+            word-spacing: 5px;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -1px;
+        h1 {
+            font-size: 2em;
             text-transform: uppercase;
-        }
-
-        .flag { color: var(--swiss-red); }
-
-        .mozilla-badge {
-            font-size: 0.7rem;
-            color: #666;
-            margin-top: 5px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            margin: 0;
         }
 
         /* HERO SECTION */
         .hero {
-            padding: 100px 5%;
-            max-width: 900px;
+            margin-bottom: 60px;
+            border-left: 2px solid var(--accent-color);
+            padding-left: 20px;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            color: #555;
-            max-width: 700px;
-        }
-
-        .status-badge {
-            background-color: var(--off-black);
-            color: var(--pure-white);
-            padding: 5px 12px;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        /* GRID SYSTEM (The Tools) */
-        .section-title {
-            padding: 0 5%;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #888;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-            margin-bottom: 40px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2px;
-            background-color: var(--off-black); /* Creates the border lines */
-            border-top: 2px solid var(--off-black);
-            border-bottom: 2px solid var(--off-black);
-        }
-
-        .card {
-            background-color: var(--pure-white);
-            padding: 40px;
-            transition: all 0.2s ease;
-        }
-
-        .card:hover {
-            background-color: var(--slate);
-        }
-
-        .card h3 {
+        .hero h2 {
+            font-size: 1.5em;
             margin-top: 0;
-            font-size: 1.2rem;
         }
 
-        .card p {
-            font-size: 0.95rem;
-            color: #666;
+        /* AUDIT PROTOCOLS (PRODUCTS) */
+        .region-title {
+            border-bottom: 1px solid var(--dim-color);
             margin-bottom: 20px;
+            padding-bottom: 5px;
+            font-size: 0.8em;
+            color: var(--dim-color);
+            letter-spacing: 2px;
         }
 
-        .card a {
-            text-decoration: none;
-            color: var(--swiss-red);
+        .protocol-card {
+            border: 1px solid #333;
+            background: #0f0f0f;
+            padding: 20px;
+            margin-bottom: 30px;
+            transition: all 0.2s;
+        }
+
+        .protocol-card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.05);
+        }
+
+        .protocol-header {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed #333;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .btn-audit {
+            display: inline-block;
+            background-color: var(--bg-color);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 10px 20px;
             font-weight: bold;
-            font-size: 0.9rem;
-            border-bottom: 1px solid var(--swiss-red);
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 0.9em;
         }
 
-        /* LIVE TERMINAL */
-        .terminal {
-            background: var(--terminal-bg);
-            color: #ddd;
-            padding: 50px 5%;
-            font-family: var(--mono-font);
-            font-size: 0.9rem;
-            border-top: 4px solid var(--swiss-red);
+        .btn-audit:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
         }
-        
-        .log-entry { margin-bottom: 5px; }
-        .blink { animation: blinker 1s linear infinite; }
-        @keyframes blinker { 50% { opacity: 0; } }
+
+        /* SHOWROOM */
+        .showroom {
+            background-color: #111;
+            padding: 20px;
+            border: 1px solid #333;
+            margin-top: 80px;
+            font-size: 0.9em;
+        }
 
         /* FOOTER */
         footer {
-            background-color: var(--off-black);
-            color: var(--pure-white);
-            padding: 60px 5%;
+            margin-top: 80px;
+            border-top: 2px solid var(--dim-color);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.8em;
+            color: var(--dim-color);
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-
-        .address {
-            font-style: normal;
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        /* MOBILE FIX */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .footer-grid { grid-template-columns: 1fr; }
+        @media (max-width: 600px) {
+            header { flex-direction: column; }
+            h1 { font-size: 1.5em; }
+            .status-bar { word-spacing: 2px; font-size: 0.6em; }
         }
     </style>
 </head>
 <body>
 
-    <div class="status-bar">
-        🟢 SYSTEMS OPERATIONAL | MIAMI NODE: ONLINE | ZURICH NODE: ONLINE
-    </div>
-
     <header>
         <div>
-            <div class="logo"><span class="flag">🇨🇭</span> Cata Risk Lab</div>
-            <div class="mozilla-badge">Operating under Swiss (nFADP) & EU AI Act Standards</div>
+            <div class="status-bar">
+                <span class="highlight">● SYSTEM ONLINE</span> | MIA: ACTIVE | ZRH: ACTIVE | LON: ACTIVE | SYD: ACTIVE
+            </div>
+            <h1>Cata Risk Lab</h1>
+            <div class="dim">Global Sovereign AI Governance</div>
         </div>
-        <div style="font-weight: bold; font-size: 0.9rem; text-align: right;">
-            ZURICH • MIAMI<br>
-            <span style="font-size: 0.7rem; color: #888;">EST. 2024</span>
+        <div style="text-align: right; font-size: 0.8em;" class="dim">
+            EST. 2024<br>
+            CH / USA / UK / AU
         </div>
     </header>
 
     <section class="hero">
-        <span class="status-badge">Institute for Sovereign AI</span>
-        <h1>We build the immune system for the Artificial Intelligence age.</h1>
-        <p>Cata Risk Lab develops open-source forensic infrastructure to audit AI liabilities, detect algorithmic harvesting, and protect sovereign data identity.</p>
+        <h2>WE DO NOT SELL SOFTWARE.<br>WE SELL REGULATORY IMMUNITY.</h2>
+        <p>
+            Regulations move faster than technology. We are the compliance layer 
+            for the Artificial Intelligence age. Operating under 
+            <span class="highlight">Swiss nFADP</span>, <span class="highlight">EU AI Act</span>, 
+            and <span class="highlight">Australian Privacy Principles</span>.
+        </p>
     </section>
 
-    <div class="section-title">ACTIVE FORENSIC INFRASTRUCTURE</div>
-
-    <div class="grid">
-        <article class="card">
-            <h3>👁️ Veritas Auditor</h3>
-            <p>Automated hallucination detection engine. Scores RAG pipeline outputs for faithfulness, answer relevance, and factual consistency.</p>
-            <a href="https://huggingface.co/spaces/Cata-Risk-Lab/Veritas-Hallucination-Auditor">LAUNCH AUDIT &rarr;</a>
-        </article>
-
-        <article class="card">
-            <h3>⚖️ Swiss Risk Calculator</h3>
-            <p>Automated compliance scoring for nFADP and EU AI Act high-risk classification. Used by Swiss insurance carriers.</p>
-            <a href="https://huggingface.co/spaces/Cata-Risk-Lab/Swiss-Risk-Calculator">CALCULATE LIABILITY &rarr;</a>
-        </article>
-
-        <article class="card">
-            <h3>🐊 Wattle Guard</h3>
-            <p>Cross-border PII redaction engine optimized for Sovereign Identity Markers (AHV13, NHS, TFN).</p>
-            <a href="https://huggingface.co/spaces/Cata-Risk-Lab/Wattle-Guard">DEPLOY GUARDRAILS &rarr;</a>
-        </article>
-
-        <article class="card">
-            <h3>📜 Liability Scanner</h3>
-            <p>Automated legal parser for AI Terms of Service (ToS). Detects "Right to Train" and "Perpetual License" clauses.</p>
-            <a href="https://huggingface.co/spaces/Cata-Risk-Lab/Liability-Scanner">SCAN CONTRACT &rarr;</a>
-        </article>
+    <div class="region-title">/// ZONE 1: NORTH AMERICA (US-EAST) ///</div>
+    <div class="protocol-card">
+        <div class="protocol-header">
+            <strong>FLORIDA SB COMPLIANCE SCAN</strong>
+            <span class="alert">[URGENT LEGISLATION]</span>
+        </div>
+        <p>
+            <strong>Target:</strong> Insurance Carriers & Healthcare (Miami/Florida)<br>
+            <strong>Risk:</strong> "Black Box" litigation liabilities under new Florida legislation.<br>
+            <strong>Deliverable:</strong> Forensic audit of claim algorithms + Human Review Certification.
+        </p>
+        <a href="mailto:anthonydcata@catarisklab.com?subject=URGENT:%20FLORIDA%20AUDIT%20REQUEST" class="btn-audit">REQUEST US AUDIT (USD)</a>
     </div>
 
-    <div style="padding: 60px 5%;">
-        <h3 style="margin-bottom: 20px;">🔬 OPEN RESEARCH DATA</h3>
-        <ul style="list-style: none; padding: 0;">
-            <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
-                <strong>📂 Recruiter Harvesting Dataset (v1.0)</strong><br>
-                <span style="color: #666; font-size: 0.9rem;">Forensic corpus of 100+ recruitment emails labeled for algorithmic fraud.</span><br>
-                <a href="https://huggingface.co/datasets/Cata-Risk-Lab/recruiter-harvesting-dataset-v1" style="color: var(--swiss-red); font-size: 0.8rem;">ACCESS DATASET [HF]</a>
-            </li>
-            <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
-                <strong>🧠 VIPER Text Classifier (Model)</strong><br>
-                <span style="color: #666; font-size: 0.9rem;">Scikit-learn architecture for detecting spam vectors in labor market data.</span><br>
-                <a href="https://huggingface.co/Cata-Risk-Lab/viper-text-classifier-v1" style="color: var(--swiss-red); font-size: 0.8rem;">VIEW MODEL [HF]</a>
-            </li>
-        </ul>
+    <div class="region-title">/// ZONE 2: EMEA (SWISS / UK / EU) ///</div>
+    <div class="protocol-card">
+        <div class="protocol-header">
+            <strong>CROSS-BORDER DATA DEFENSE</strong>
+            <span class="highlight">[STANDARD: nFADP/GDPR]</span>
+        </div>
+        <p>
+            <strong>Target:</strong> FinTech (Zurich) & Legal Firms (London)<br>
+            <strong>Risk:</strong> Unlawful data egress via OpenAI/LLM pipelines to US servers.<br>
+            <strong>Deliverable:</strong> Cross-border data map + Liability Shield Certificate.
+        </p>
+        <a href="mailto:anthonydcata@catarisklab.com?subject=REQUEST:%20SWISS/UK%20CERTIFICATION" class="btn-audit">INITIATE EMEA CERTIFICATION</a>
     </div>
 
-    <div class="terminal">
-        <p style="opacity: 0.5; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px;">// LATEST SYSTEM LOGS</p>
-        <p class="log-entry">> <span style="color: var(--terminal-green);">CONNECTED</span> to Sovereign Identity Database...</p>
-        <p class="log-entry">> <span style="color: var(--terminal-green);">VERITAS ENGINE</span> analyzing RAG vectors...</p>
-        <p class="log-entry">> <span style="color: var(--terminal-green);">AUDITING</span> Liability Clauses for EU AI Act Compliance...</p>
-        <br>
-        <p class="log-entry" style="color: var(--swiss-red);">[!] HALLUCINATION DETECTED IN SECTOR 4.</p>
-        <p class="log-entry blink">_</p>
+    <div class="region-title">/// ZONE 3: APAC (AUSTRALIA) ///</div>
+    <div class="protocol-card">
+        <div class="protocol-header">
+            <strong>ADM (AUTOMATED DECISION) AUDIT</strong>
+            <span class="warn">[PRIVACY ACT REFORM]</span>
+        </div>
+        <p>
+            <strong>Target:</strong> ASX Listed Companies & Gov Contractors<br>
+            <strong>Risk:</strong> Violations of new transparency rights for AI decision-making.<br>
+            <strong>Deliverable:</strong> Automated Decision-Making (ADM) Impact Statement.
+        </p>
+        <a href="mailto:anthonydcata@catarisklab.com?subject=REQUEST:%20AUSTRALIAN%20ADM%20AUDIT" class="btn-audit">REQUEST SYDNEY AUDIT (AUD)</a>
     </div>
+
+    <section class="showroom">
+        <h4 style="margin-top: 0;">OPEN SOURCE LABS (THE SHOWROOM)</h4>
+        <p>
+            For developers and researchers: Verify our engines on our public repositories.
+            <br><span class="dim">Note: Public demos are limited. For full forensic audits, request access above.</span>
+        </p>
+        <p>
+            > <a href="https://github.com/YOUR_GITHUB_USER" target="_blank">View Source (GitHub)</a><br>
+            > <a href="https://huggingface.co/YOUR_HF_USER" target="_blank">View Models (Hugging Face)</a>
+        </p>
+    </section>
 
     <footer>
-        <div class="footer-grid">
-            <div>
-                <h3>Cata Risk Lab</h3>
-                <p class="address">
-                    <strong>Global Headquarters</strong><br>
-                    5966 South Dixie Highway, Suite 300<br>
-                    South Miami, FL 33143<br><br>
-                    
-                    <strong>Research Inquiries:</strong><br>
-                    anthonydcata@catarisklab.com
-                </p>
-            </div>
-            <div style="text-align: right;">
-                <p class="address">
-                    &copy; 2026 Cata Risk Lab.<br>
-                    Operating under Swiss & US Sovereign Standards.<br>
-                    <br>
-                    <a href="https://github.com/catarisklab" style="color: #999; text-decoration: none;">GitHub</a> | 
-                    <a href="https://huggingface.co/Cata-Risk-Lab" style="color: #999; text-decoration: none;">Hugging Face</a>
-                </p>
-            </div>
-        </div>
+        <p>
+            CATA RISK LAB GLOBAL HEADQUARTERS<br>
+            5966 South Dixie Highway, Suite 300, South Miami, FL 33143
+        </p>
+        <p class="dim">
+            Operating under Sovereign Standards.<br>
+            © 2026 Cata Risk Lab. All Rights Reserved.
+        </p>
     </footer>
 
 </body>
