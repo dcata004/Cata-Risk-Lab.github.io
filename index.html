@@ -6,15 +6,17 @@
     <title>Cata Risk Lab | Sovereign AI Governance</title>
     <style>
         :root {
-            /* PREMIUM DARK THEME (Not Matrix) */
-            --bg-color: #050505;
-            --card-bg: #111111;
-            --text-main: #ffffff;
-            --text-dim: #888888;
-            --accent-green: #00ff41; /* Kept only for "Active" dots */
-            --border-color: #222222;
+            /* THE SWISS CLINICAL THEME (Light Mode) */
+            --bg-color: #ffffff;
+            --card-bg: #f8f9fa; /* Very subtle grey for contrast */
+            --text-main: #111111;
+            --text-dim: #666666;
+            --accent-color: #000000; /* Stark Black for authority */
+            --border-color: #e5e5e5;
+            --highlight-color: #005cc5; /* Subtle 'Link Blue' like GitHub */
+            
             --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            --font-mono: 'Courier New', Courier, monospace; /* Only for technical terms */
+            --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
         }
 
         body {
@@ -23,84 +25,103 @@
             font-family: var(--font-main);
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            max-width: 900px;
+            line-height: 1.5;
+            max-width: 850px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px;
             -webkit-font-smoothing: antialiased;
         }
 
         /* TYPOGRAPHY */
         h1 {
-            font-size: 2.2em;
-            letter-spacing: -1px;
+            font-size: 2em;
+            letter-spacing: -0.5px;
             margin: 0;
             font-weight: 700;
+            color: var(--text-main);
         }
 
         h2 {
-            font-size: 1.8em;
+            font-size: 1.6em;
             margin-top: 0;
             font-weight: 600;
-            line-height: 1.3;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
         }
 
-        .mono {
+        .mono-tag {
             font-family: var(--font-mono);
-            font-size: 0.9em;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #333;
         }
 
         /* LINKS */
-        a { color: var(--text-main); text-decoration: none; border-bottom: 1px solid var(--border-color); transition: all 0.2s; }
-        a:hover { border-bottom: 1px solid var(--accent-green); color: var(--accent-green); }
+        a { 
+            color: var(--text-main); 
+            text-decoration: none; 
+            border-bottom: 1px solid #ccc; 
+            transition: all 0.2s; 
+        }
+        a:hover { 
+            background-color: #eee;
+            border-bottom: 1px solid #000; 
+        }
 
         /* HEADER */
         header {
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 30px;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
         }
 
-        .status-dot { color: var(--accent-green); font-size: 0.8em; }
+        .status-dot { color: #28a745; font-size: 0.8em; } /* GitHub Green */
         
         /* HERO */
         .hero {
-            margin-bottom: 70px;
+            margin-bottom: 80px;
             max-width: 700px;
         }
         
-        .hero-tag {
-            background: #222;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            color: #ddd;
+        .hero-sub {
+            color: var(--text-dim);
+            font-size: 1.1em;
+            margin-top: 15px;
         }
 
-        /* REGION ZONES */
+        /* AUDIT CARDS - The "Paperwork" Look */
         .region-label {
             font-family: var(--font-mono);
-            font-size: 0.75em;
+            font-size: 0.7em;
             color: var(--text-dim);
             letter-spacing: 1px;
             margin-bottom: 15px;
             text-transform: uppercase;
+            border-left: 2px solid #000;
+            padding-left: 10px;
         }
 
         .audit-card {
-            background-color: var(--card-bg);
+            background-color: var(--bg-color);
             border: 1px solid var(--border-color);
-            padding: 25px;
+            padding: 30px;
             margin-bottom: 40px;
-            border-radius: 6px;
-            transition: border-color 0.3s;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02); /* Very subtle paper shadow */
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .audit-card:hover {
-            border-color: #444;
+            border-color: #999;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
         }
 
         .card-header {
@@ -109,45 +130,55 @@
             align-items: center;
             margin-bottom: 15px;
             padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px dashed var(--border-color);
         }
 
-        .tag-urgent { color: #ff4444; font-weight: bold; font-size: 0.8em; font-family: var(--font-mono); }
-        .tag-standard { color: var(--accent-green); font-size: 0.8em; font-family: var(--font-mono); }
-        .tag-warn { color: #ffbb00; font-size: 0.8em; font-family: var(--font-mono); }
+        .card-title {
+            font-weight: 700;
+            font-size: 1.1em;
+        }
 
-        /* MONEY BUTTONS */
+        /* TAGS */
+        .tag-urgent { color: #d73a49; background: #ffeef0; padding: 4px 8px; border-radius: 20px; font-size: 0.75em; font-weight: 600; font-family: var(--font-mono); }
+        .tag-standard { color: #0366d6; background: #f1f8ff; padding: 4px 8px; border-radius: 20px; font-size: 0.75em; font-weight: 600; font-family: var(--font-mono); }
+        .tag-warn { color: #b08800; background: #fff8c5; padding: 4px 8px; border-radius: 20px; font-size: 0.75em; font-weight: 600; font-family: var(--font-mono); }
+
+        /* BUTTONS */
         .btn-audit {
             display: inline-block;
-            background-color: var(--text-main);
-            color: var(--bg-color);
+            background-color: #000;
+            color: #fff;
             padding: 12px 24px;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 0.9em;
-            border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             margin-top: 20px;
             cursor: pointer;
-            letter-spacing: 0.5px;
+            border: 1px solid #000;
+            text-decoration: none;
         }
 
         .btn-audit:hover {
-            background-color: #ccc;
+            background-color: #fff;
             color: #000;
-            border-bottom: none;
+            border-bottom: 1px solid #000;
         }
 
-        /* FOOTER & SHOWROOM */
+        /* SHOWROOM (Matches GitHub) */
         .showroom-links {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-family: var(--font-mono);
+            margin-top: 80px;
+            padding: 30px;
+            background: #f6f8fa; /* GitHub Repo Header Color */
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: var(--font-main);
             font-size: 0.9em;
         }
 
         footer {
             margin-top: 80px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
             color: var(--text-dim);
             font-size: 0.85em;
             text-align: center;
@@ -164,66 +195,75 @@
     <header>
         <div>
             <h1>Cata Risk Lab</h1>
-            <div style="color: var(--text-dim); margin-top: 5px;">Sovereign AI Governance</div>
+            <div style="color: var(--text-dim); margin-top: 5px; font-weight: 500;">Sovereign AI Governance</div>
         </div>
-        <div class="mono" style="font-size: 0.75em; color: var(--text-dim);">
+        <div class="mono-tag" style="background: transparent; padding: 0;">
             <span class="status-dot">●</span> SYSTEM ONLINE<br>
-            MIA / ZRH / LON / SYD
+            <span style="color: #999;">MIA / ZRH / LON / SYD</span>
         </div>
     </header>
 
     <section class="hero">
         <h2>We do not sell software.<br>We sell regulatory immunity.</h2>
-        <p style="color: #bbb; font-size: 1.1em;">
+        <p class="hero-sub">
             Cata Risk Lab is the compliance layer for the Artificial Intelligence age. 
-            We operate under <span class="hero-tag">Swiss nFADP</span>, 
-            <span class="hero-tag">EU AI Act</span>, and <span class="hero-tag">Australian Privacy</span> standards.
+            We operate under <span class="mono-tag">Swiss nFADP</span>, 
+            <span class="mono-tag">EU AI Act</span>, and <span class="mono-tag">Australian Privacy</span> standards.
         </p>
     </section>
 
     <div class="region-label">/// ZONE 1: AMERICAS</div>
     <div class="audit-card">
         <div class="card-header">
-            <strong>Florida SB Compliance Scan</strong>
-            <span class="tag-urgent">[URGENT LEGISLATION]</span>
+            <span class="card-title">Florida SB Compliance Scan</span>
+            <span class="tag-urgent">URGENT LEGISLATION</span>
         </div>
-        <p style="margin-top: 0;">
+        <p style="margin-top: 0; color: #444;">
             <strong>Target:</strong> Insurance Carriers & Health Providers (Miami/FL)<br>
-            <span style="color: var(--text-dim);">Detects "Black Box" litigation liabilities. Includes human review certification.</span>
+            <span style="color: var(--text-dim); font-size: 0.95em;">Detects "Black Box" litigation liabilities. Includes human review certification.</span>
         </p>
-        <a href="mailto:anthonydcata@catarisklab.com?subject=URGENT:%20FLORIDA%20AUDIT%20REQUEST" class="btn-audit">REQUEST US AUDIT (USD)</a>
+        <a href="mailto:anthonydcata@catarisklab.com?subject=URGENT:%20FLORIDA%20AUDIT%20REQUEST" class="btn-audit">Request US Audit (USD)</a>
     </div>
 
     <div class="region-label">/// ZONE 2: EMEA (SWISS / UK)</div>
     <div class="audit-card">
         <div class="card-header">
-            <strong>Cross-Border Data Defense</strong>
-            <span class="tag-standard">[nFADP / GDPR]</span>
+            <span class="card-title">Cross-Border Data Defense</span>
+            <span class="tag-standard">nFADP / GDPR</span>
         </div>
-        <p style="margin-top: 0;">
+        <p style="margin-top: 0; color: #444;">
             <strong>Target:</strong> FinTech (Zurich) & Legal (London)<br>
-            <span style="color: var(--text-dim);">Prevents unlawful data egress via OpenAI pipelines. Includes Liability Shield Certificate.</span>
+            <span style="color: var(--text-dim); font-size: 0.95em;">Prevents unlawful data egress via OpenAI pipelines. Includes Liability Shield Certificate.</span>
         </p>
-        <a href="mailto:anthonydcata@catarisklab.com?subject=REQUEST:%20SWISS/UK%20CERTIFICATION" class="btn-audit">INITIATE EMEA CERTIFICATION</a>
+        <a href="mailto:anthonydcata@catarisklab.com?subject=REQUEST:%20SWISS/UK%20CERTIFICATION" class="btn-audit">Initiate EMEA Certification</a>
     </div>
 
     <div class="region-label">/// ZONE 3: APAC (AUSTRALIA)</div>
     <div class="audit-card">
         <div class="card-header">
-            <strong>ADM (Automated Decision) Audit</strong>
-            <span class="tag-warn">[PRIVACY ACT REFORM]</span>
+            <span class="card-title">ADM (Automated Decision) Audit</span>
+            <span class="tag-warn">PRIVACY ACT REFORM</span>
         </div>
-        <p style="margin-top: 0;">
+        <p style="margin-top: 0; color: #444;">
             <strong>Target:</strong> ASX Listed Companies<br>
-            <span style="color: var(--text-dim);">Forensic analysis of automated decision-making transparency.</span>
+            <span style="color: var(--text-dim); font-size: 0.95em;">Forensic analysis of automated decision-making transparency.</span>
         </p>
-        <a href="mailto:anthonydcata@catarisklab.com?subject=REQUEST:%20AUSTRALIAN%20ADM%20AUDIT" class="btn-audit">REQUEST SYDNEY AUDIT (AUD)</a>
+        <a href="mailto:anthonydcata@catarisklab.com?subject=REQUEST:%20AUSTRALIAN%20ADM%20AUDIT" class="btn-audit">Request Sydney Audit (AUD)</a>
     </div>
 
     <div class="showroom-links">
-        <p style="margin-bottom: 10px; color: var(--text-dim);">OPEN SOURCE RESEARCH LABS:</p>
-        > <a href="https://github.com/catarisklab" target="_blank">GitHub (Source Code)</a><br><br>
-        > <a href="https://huggingface.co/Cata-Risk-Lab" target="_blank">Hugging Face (Models)</a>
+        <strong style="color: #000;">OPEN SOURCE RESEARCH LABS</strong>
+        <p style="color: var(--text-dim); margin-bottom: 20px;">
+            For developers and researchers: Verify our engines on our public repositories.
+        </p>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+            <a href="https://github.com/catarisklab" target="_blank" style="border: none; font-weight: 600; color: #0366d6;">
+                ↗ View Source (GitHub)
+            </a>
+            <a href="https://huggingface.co/Cata-Risk-Lab" target="_blank" style="border: none; font-weight: 600; color: #ff9900;">
+                ↗ View Models (Hugging Face)
+            </a>
+        </div>
     </div>
 
     <footer>
