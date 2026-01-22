@@ -15,7 +15,7 @@
     <title>Cata Risk Lab | Sovereign AI Governance</title>
     <style>
         :root {
-            /* SWISS CLINICAL v4.0 */
+            /* SWISS CLINICAL v5.0 */
             --bg-color: #ffffff;
             --text-main: #111111;
             --text-dim: #555555;
@@ -44,7 +44,7 @@
 
         /* TYPOGRAPHY */
         h1 { font-size: 2.2em; letter-spacing: -1px; margin: 0; font-weight: 700; }
-        h2 { font-size: 1.5em; letter-spacing: -0.5px; font-weight: 600; margin-top: 40px; margin-bottom: 20px; }
+        h2 { font-size: 1.5em; letter-spacing: -0.5px; font-weight: 600; margin-top: 50px; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px;}
         h3 { font-size: 1.1em; font-weight: 600; margin: 0 0 10px 0; }
         
         .mono-tag {
@@ -82,10 +82,18 @@
         .hero { margin-bottom: 60px; max-width: 750px; }
         .hero-sub { color: var(--text-dim); font-size: 1.2em; margin-top: 15px; }
 
-        /* ENGAGEMENT TIERS (The Pricing Upgrade) */
+        /* ENGAGEMENT TIERS (USD) */
         .tier-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* SOVEREIGN ZONES (International) */
+        .zone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-bottom: 60px;
         }
@@ -96,6 +104,7 @@
             border-radius: 6px;
             background: #fafafa;
             transition: all 0.2s;
+            position: relative;
         }
 
         .tier-card:hover { border-color: #000; transform: translateY(-2px); }
@@ -103,6 +112,14 @@
         .tier-list { list-style: none; padding: 0; margin: 20px 0; font-size: 0.9em; color: var(--text-dim); }
         .tier-list li { margin-bottom: 8px; padding-left: 15px; position: relative; }
         .tier-list li::before { content: "›"; position: absolute; left: 0; color: #000; font-weight: bold; }
+
+        /* ZONE FLAGS */
+        .zone-flag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5em;
+        }
 
         /* BUTTONS */
         .btn-primary {
@@ -136,17 +153,6 @@
             border: 1px solid #e0e0e0;
         }
         .btn-outline:hover { border-color: #000; }
-
-        /* AUDIT ZONES (Services) */
-        .audit-card {
-            border-left: 3px solid #000;
-            background: #fff;
-            padding: 20px;
-            margin-bottom: 30px;
-            border: 1px solid var(--border-color);
-            border-left: 4px solid #000;
-        }
-        .tag-urgent { color: var(--accent-red); background: #ffeef0; padding: 2px 6px; border-radius: 3px; font-size: 0.7em; font-weight: 700; text-transform: uppercase;}
 
         /* FOOTER & TRUST */
         .trust-bar {
@@ -199,30 +205,12 @@
                     Launch Risk Calculator ↗
                 </a>
                 <a href="#pricing" class="btn-outline" style="width: auto;">
-                    View Audit Tiers ↓
+                    View Engagement Protocols ↓
                 </a>
             </div>
         </section>
 
-        <div style="margin-bottom: 15px; font-family: var(--font-mono); font-size: 0.8em; color: #666;">/// ACTIVE AUDIT ZONES</div>
-        
-        <div class="audit-card">
-            <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
-                <h3>🇺🇸 Florida SB Compliance Scan</h3>
-                <span class="tag-urgent">Urgent</span>
-            </div>
-            <p style="margin:0; font-size: 0.95em;">Forensic analysis of insurance algorithms for "Black Box" liabilities under new Florida legislation.</p>
-        </div>
-
-        <div class="audit-card">
-            <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
-                <h3>🇨🇭 Swiss nFADP Data Shield</h3>
-                <span class="mono-tag">Sovereign</span>
-            </div>
-            <p style="margin:0; font-size: 0.95em;">Cross-border data egress mapping to prevent US-based LLMs from leaking Swiss PII.</p>
-        </div>
-
-        <h2 id="pricing">Engagement Protocols</h2>
+        <h2 id="pricing">Standard Protocols (Americas/Global)</h2>
         <div class="tier-grid">
             <div class="tier-card">
                 <h3>Compliance Snapshot</h3>
@@ -232,7 +220,6 @@
                     <li>2-Hour Technical System Review</li>
                     <li>Veritas™ Hallucination Scan (Basic)</li>
                     <li>Risk Exposure Heatmap</li>
-                    <li>48-Hour Turnaround</li>
                 </ul>
                 <a href="https://calendly.com/anthonydcata-catarisklab/30min" target="_blank" class="btn-outline">Book Snapshot</a>
             </div>
@@ -245,10 +232,55 @@
                 <ul class="tier-list">
                     <li>Full Codebase & Model Card Audit</li>
                     <li>Sovereign Data Shield Certification</li>
-                    <li>ISO 42001 Gap Analysis</li>
                     <li>Liability Shield Documentation</li>
                 </ul>
                 <a href="mailto:anthonydcata@catarisklab.com?subject=REQUEST:%20FULL%20AUDIT" class="btn-primary">Request Proposal</a>
+            </div>
+        </div>
+
+        <h2>Sovereign Zone Protocols (Local Currency)</h2>
+        <p style="color: var(--text-dim); margin-bottom: 25px; font-size: 0.95em;">
+            Optimized for domestic billing. Includes local tax invoicing and regulatory alignment.
+        </p>
+
+        <div class="zone-grid">
+            <div class="tier-card">
+                <div class="zone-flag">🇨🇭</div>
+                <h3>Swiss Data Shield</h3>
+                <span class="tier-price">5,500 CHF</span>
+                <ul class="tier-list">
+                    <li><strong>nFADP</strong> Cross-Border Cert</li>
+                    <li>OpenAI Egress Mapping</li>
+                    <li>Zurich/Geneva Banking Std</li>
+                    <li>Local IBAN Payment</li>
+                </ul>
+                <a href="mailto:anthonydcata@catarisklab.com?subject=SWISS%20AUDIT%20REQUEST" class="btn-outline">Request CHF Invoice</a>
+            </div>
+
+            <div class="tier-card">
+                <div class="zone-flag">🇬🇧</div>
+                <h3>UK GDPR Audit</h3>
+                <span class="tier-price">4,500 GBP</span>
+                <ul class="tier-list">
+                    <li><strong>UK GDPR</strong> Data Impact</li>
+                    <li>ICO Compliance Check</li>
+                    <li>Model Safety Audit</li>
+                    <li>Domestic UK Transfer</li>
+                </ul>
+                <a href="mailto:anthonydcata@catarisklab.com?subject=UK%20AUDIT%20REQUEST" class="btn-outline">Request GBP Invoice</a>
+            </div>
+
+            <div class="tier-card">
+                <div class="zone-flag">🇦🇺</div>
+                <h3>Sydney ADM Audit</h3>
+                <span class="tier-price">8,500 AUD</span>
+                <ul class="tier-list">
+                    <li><strong>Privacy Act</strong> Reform Check</li>
+                    <li>Auto-Decision Transparency</li>
+                    <li>Sovereign Shield (APP 8)</li>
+                    <li>Local Payment (NPP)</li>
+                </ul>
+                <a href="mailto:anthonydcata@catarisklab.com?subject=AUSTRALIA%20AUDIT%20REQUEST" class="btn-outline">Request AUD Invoice</a>
             </div>
         </div>
 
