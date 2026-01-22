@@ -15,13 +15,14 @@
     <title>Cata Risk Lab | Sovereign AI Governance</title>
     <style>
         :root {
-            /* SWISS CLINICAL v5.0 */
+            /* SWISS CLINICAL v6.0 */
             --bg-color: #ffffff;
             --text-main: #111111;
             --text-dim: #555555;
             --border-color: #e0e0e0;
             --accent-red: #d73a49; /* Urgent */
-            --accent-blue: #0366d6; /* Standard */
+            --terminal-black: #000000;
+            --terminal-green: #00ff00; /* Hacker Green */
             --font-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
         }
@@ -34,6 +35,45 @@
             padding: 0;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+        }
+
+        /* TOP TERMINAL BAR */
+        .terminal-bar {
+            background-color: var(--terminal-black);
+            color: #fff;
+            padding: 8px 20px;
+            font-family: var(--font-mono);
+            font-size: 0.75em;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        /* THE FLASHING DOT ANIMATION */
+        .status-dot {
+            color: var(--terminal-green);
+            display: inline-block;
+            margin-right: 6px;
+            animation: blink-animation 2s infinite;
+        }
+
+        @keyframes blink-animation {
+            0% { opacity: 1; text-shadow: 0 0 5px var(--terminal-green); }
+            50% { opacity: 0.3; text-shadow: none; }
+            100% { opacity: 1; text-shadow: 0 0 5px var(--terminal-green); }
+        }
+
+        .alert-bar {
+            background: #f8f9fa;
+            color: #333;
+            text-align: center;
+            padding: 8px;
+            font-size: 0.8em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .container {
@@ -56,16 +96,6 @@
             padding: 3px 8px;
             border-radius: 4px;
             color: #333;
-        }
-
-        .alert-bar {
-            background: #000;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            font-size: 0.85em;
-            font-weight: 600;
-            letter-spacing: 0.5px;
         }
 
         /* HEADER */
@@ -154,6 +184,17 @@
         }
         .btn-outline:hover { border-color: #000; }
 
+        /* SERVICES CARDS */
+        .audit-card {
+            border-left: 3px solid #000;
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            border-left: 4px solid #000;
+        }
+        .tag-urgent { color: var(--accent-red); background: #ffeef0; padding: 2px 6px; border-radius: 3px; font-size: 0.7em; font-weight: 700; text-transform: uppercase;}
+
         /* FOOTER & TRUST */
         .trust-bar {
             border-top: 1px solid var(--border-color);
@@ -173,13 +214,19 @@
         @media (max-width: 700px) {
             .tier-grid { grid-template-columns: 1fr; }
             header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .terminal-bar { flex-direction: column; gap: 5px; text-align: center; }
         }
     </style>
 </head>
 <body>
 
+    <div class="terminal-bar">
+        <div><span class="status-dot">●</span> SYSTEM ONLINE</div>
+        <div style="color: #999;">MIA / ZRH / SYD</div>
+    </div>
+
     <div class="alert-bar">
-        ⚠️ REGULATORY ALERT: EU AI Act & Florida HB 527 Compliance Deadlines approaching.
+        ⚠️ REGULATORY ALERT: EU AI Act & Florida HB 527 Compliance Deadlines.
     </div>
 
     <div class="container">
@@ -188,10 +235,7 @@
                 <h1>Cata Risk Lab</h1>
                 <div style="color: var(--text-dim); margin-top: 5px;">Sovereign AI Governance & Forensic Audit</div>
             </div>
-            <div class="mono-tag">
-                SYSTEM ONLINE ● MIA / ZRH / SYD
-            </div>
-        </header>
+            </header>
 
         <section class="hero">
             <h2>We do not sell software.<br>We sell regulatory immunity.</h2>
@@ -209,6 +253,24 @@
                 </a>
             </div>
         </section>
+
+        <div style="margin-bottom: 15px; font-family: var(--font-mono); font-size: 0.8em; color: #666;">/// ACTIVE AUDIT ZONES</div>
+        
+        <div class="audit-card">
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                <h3>🇺🇸 Florida SB Compliance Scan</h3>
+                <span class="tag-urgent">Urgent</span>
+            </div>
+            <p style="margin:0; font-size: 0.95em;">Forensic analysis of insurance algorithms for "Black Box" liabilities under new Florida legislation.</p>
+        </div>
+
+        <div class="audit-card">
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                <h3>🇨🇭 Swiss nFADP Data Shield</h3>
+                <span class="mono-tag">Sovereign</span>
+            </div>
+            <p style="margin:0; font-size: 0.95em;">Cross-border data egress mapping to prevent US-based LLMs from leaking Swiss PII.</p>
+        </div>
 
         <h2 id="pricing">Standard Protocols (Americas/Global)</h2>
         <div class="tier-grid">
